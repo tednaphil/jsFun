@@ -47,13 +47,27 @@ const kittyPrompts = {
     // find and filter always return a boolean
   },
 
-  sortByAge() {
+  sortByAge(kittiesArray) {
     // Sort the kitties by their age
 
     /* CODE GOES HERE */
+    //input: Array of objects
+    //output: new array of objects sorted by age property
+    //1. Use sort() to order objects in descending order
+    // by age property
+    // -- if a.age > b.age return 1 (takes precendence)
+    //    otherwise return -1
+    // return sorted array
+    // console.log(kittiesArray)
+    const sortedArray = kittiesArray.sort((a,b) => b.age - a.age);
+    console.log(sortedArray)
+    return sortedArray
+
 
     // Annotation:
-    // Write your annotation here as a comment
+    // research why toSorted was not reconized as a function on
+    // when called on the kittiesArray argument
+
   },
 
   growUp() {
