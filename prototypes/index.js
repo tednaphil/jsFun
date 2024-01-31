@@ -47,7 +47,7 @@ const kittyPrompts = {
     // find and filter always return a boolean
   },
 
-  sortByAge(kittiesArray) {
+  sortByAge(array) {
     // Sort the kitties by their age
 
     /* CODE GOES HERE */
@@ -59,7 +59,7 @@ const kittyPrompts = {
     //    otherwise return -1
     // return sorted array
     // console.log(kittiesArray)
-    const sortedArray = kittiesArray.sort((a,b) => b.age - a.age);
+    const sortedArray = array.sort((a,b) => b.age - a.age);
     // console.log(sortedArray)
     return sortedArray
 
@@ -70,7 +70,7 @@ const kittyPrompts = {
 
   },
 
-  growUp(kittisArray) {
+  growUp(array) {
     // Return an array of kitties who have all grown up by 2 years e.g.
     // [{
     //   name: 'Felicia',
@@ -90,9 +90,9 @@ const kittyPrompts = {
     //use map to increase each pet age by 2
     //return new array
 
-    let grownUps = kittisArray.map((kitty) => {
-      kitty.age += 2
-      return kitty
+    let grownUps = array.map((animal) => {
+      animal.age += 2
+      return animal
     });
     return grownUps
   }
@@ -517,9 +517,24 @@ const breweryPrompts = {
     // 40
 
     /* CODE GOES HERE */
+    //input: array of objects
+    //output: 1 number
+    //declar a total beers variable
+    //use reduce to add up the length of each 
+    //brewery's beers array
+    //return the totalbeers
+
+    let totalBeers = breweries.reduce((acc, brewery) => {
+      acc += brewery.beers.length
+      return acc
+    }, 0)
+    return totalBeers
 
     // Annotation:
     // Write your annotation here as a comment
+    // I'm thinking a better way to solve this might be to
+    // collect the beer count for each brewery, then
+    // reduce those to one sum.
   },
 
   getBreweryBeerCount() {
@@ -532,6 +547,24 @@ const breweryPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    //output array of objects with 2 properties
+    //declare a brewerycounts variable
+    //use map to reassign the value of each object to
+    // a new object with the the name property
+    // and the beerCount property assigned to
+    //object.beers.length
+    //return the object
+    //return brewerycounts
+
+    let breweryCounts = breweries.map((brewery) => {
+      brewery = {
+        name: brewery.name,
+        beerCount: brewery.beers.length
+      }
+      return brewery
+    })
+    console.log('breweryCounts:', breweryCounts)
+    return breweryCounts
 
     // Annotation:
     // Write your annotation here as a comment
