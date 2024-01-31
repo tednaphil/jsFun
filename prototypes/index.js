@@ -60,7 +60,7 @@ const kittyPrompts = {
     // return sorted array
     // console.log(kittiesArray)
     const sortedArray = kittiesArray.sort((a,b) => b.age - a.age);
-    console.log(sortedArray)
+    // console.log(sortedArray)
     return sortedArray
 
 
@@ -70,7 +70,7 @@ const kittyPrompts = {
 
   },
 
-  growUp() {
+  growUp(kittisArray) {
     // Return an array of kitties who have all grown up by 2 years e.g.
     // [{
     //   name: 'Felicia',
@@ -85,6 +85,16 @@ const kittyPrompts = {
     // ...etc]
 
     /* CODE GOES HERE */
+    // input array of objects
+    // output array of objects of the same length
+    //use map to increase each pet age by 2
+    //return new array
+
+    let grownUps = kittisArray.map((kitty) => {
+      kitty.age += 2
+      return kitty
+    });
+    return grownUps
   }
 };
 
