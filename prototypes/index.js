@@ -563,11 +563,16 @@ const breweryPrompts = {
       }
       return brewery
     })
-    console.log('breweryCounts:', breweryCounts)
+    // console.log('breweryCounts:', breweryCounts)
     return breweryCounts
 
     // Annotation:
     // Write your annotation here as a comment
+    //the  function uses no parameters or arguments
+    //the array is iterated over - each object is
+    //reassigned a new object with two properties
+    //the map method returns the array of newly
+    //constructed objects
   },
 
   getSingleBreweryBeerCount(breweryName) {
@@ -577,6 +582,16 @@ const breweryPrompts = {
 
 
     /* CODE GOES HERE */
+    // 1. declare a brewery variable to store step 2
+    // 2. use find to iterate through the array and return
+    //    the brewery object
+    // 3. return brewery.beers.length
+    // 
+    let foundBrewery = breweries.find((brewery) => {
+      return breweryName === brewery.name
+    })
+    // console.log(foundBrewery)
+    return foundBrewery.beers.length
 
     // Annotation:
     // Write your annotation here as a comment
