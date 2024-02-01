@@ -21,7 +21,7 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
   orangePetNames(array) {
-    // Return an array of just the names of kitties who are orange e.g.
+    // USE FOREACH Return an array of just the names of kitties who are orange e.g.
         // ['Tiger', 'Snickers']
 
         /* CODE GOES HERE */
@@ -32,19 +32,32 @@ const kittyPrompts = {
     //  that have orange value for color.
     //3. Use map to return array of 2 names
 
-    const orangeOnes = array.filter((animal) => {
-      return animal.color === 'orange'
-    });
+    // let petNames = []
+    // array.forEach((pet) => {
+    //   if (pet.color === 'orange') {
+    //     petNames.push(pet.name)
+    //   }
+    //   return petNames
+    // })
 
-    const orangeOnesNames = orangeOnes.map((animal) => {
-      return animal.name
-    });
+    // let orangePets = array.filter((pet) => {
+    //   return pet.color === 'orange'
+    // });
+    // let orangePetNames = orangePets.map((pet) => {
+    //   return pet.name
+    // });
+    // return orangePetNames;
 
-    // console.log(orangeKittyNames)
-    return orangeOnesNames;
+    let orangePets = array.reduce((names, pet) => {
+      if (pet.color === 'orange') {
+        names.push(pet.name)
+      }
+      return names
+    }, [])
+    return orangePets
+  
 
     // Annotation:
-    // find and filter always return a boolean
   },
 
   sortByAge(array) {
@@ -603,6 +616,8 @@ const breweryPrompts = {
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
     /* CODE GOES HERE */
+    //sort breweries.beers array by abv
+    //return index[0]
 
     // Annotation:
     // Write your annotation here as a comment
