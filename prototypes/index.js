@@ -543,6 +543,8 @@ const breweryPrompts = {
     }, 0)
     return totalBeers
 
+
+
     // Annotation:
     // Write your annotation here as a comment
     // I'm thinking a better way to solve this might be to
@@ -600,11 +602,21 @@ const breweryPrompts = {
     //    the brewery object
     // 3. return brewery.beers.length
     // 
-    let foundBrewery = breweries.find((brewery) => {
-      return breweryName === brewery.name
+    // let foundBrewery = breweries.find((brewery) => {
+    //   return breweryName === brewery.name
+    // })
+    // // console.log(foundBrewery)
+    // return foundBrewery.beers.length
+
+    let beerCount = 0
+
+    breweries.forEach((brewery) => {
+      if (breweryName === brewery.name) {
+        beerCount += brewery.beers.length
+        // console.log(beerCount)
+      }
     })
-    // console.log(foundBrewery)
-    return foundBrewery.beers.length
+    return beerCount
 
     // Annotation:
     // Write your annotation here as a comment
@@ -616,11 +628,21 @@ const breweryPrompts = {
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
     /* CODE GOES HERE */
-    //sort breweries.beers array by abv
+    //create array of all beers from each brewery
+    //sort beers array by abv
     //return index[0]
+
+    let allBeers = [];
+    breweries.forEach((brewery) => {
+      allBeers.push((brewery.beers))
+    });
+    allBeers = allBeers.flat();
+    let sortedBeers = allBeers.sort((a, b) => b.abv - a.abv);
+    return sortedBeers[0]
 
     // Annotation:
     // Write your annotation here as a comment
+    //flat() works well to turn an array of arrays into one array of elements!
   }
 };
 
