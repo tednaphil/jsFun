@@ -475,6 +475,15 @@ const weatherPrompts = {
 
     /* CODE GOES HERE */
 
+    let sunnyCities = weather.filter(({ type }) => { //destructure example//
+      return type === 'sunny' || type === 'mostly sunny'
+    })
+    // console.log(sunnyCities)
+    let sunnyStatements = sunnyCities.map((city) => {
+      return `${city.location} is ${city.type}.`
+    })
+
+    return sunnyStatements
     // Annotation:
     // Write your annotation here as a comment
   },
