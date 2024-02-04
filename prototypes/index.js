@@ -447,6 +447,20 @@ const weatherPrompts = {
     // [ 40, 40, 44.5, 43.5, 57, 35, 65.5, 62, 14, 46.5 ]
 
     /* CODE GOES HERE */
+    //output: array of numbers (same length as original)
+    //1. map weather array
+    //2. declare avg temp variable
+    //3. assign city temperature high + city temp low / 2 to avg temp
+    //4. return avg temp
+
+    let avgTemps = weather.map((city) => {
+      let cityAvg = (city.temperature.high + city.temperature.low) / 2
+      // console.log(cityAvg)
+      return cityAvg
+
+    });
+    // console.log(avgTemps)
+    return avgTemps
 
     // Annotation:
     // Write your annotation here as a comment
