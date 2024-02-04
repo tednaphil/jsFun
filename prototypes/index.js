@@ -56,6 +56,7 @@ const kittyPrompts = {
     }, [])
     return orangePets
   
+  
 
     // Annotation:
   },
@@ -103,13 +104,21 @@ const kittyPrompts = {
     //use map to increase each pet age by 2
     //return new array
 
-    let grownUps = array.map((animal) => {
-      animal.age += 2
-      return animal
-    });
-    return grownUps
-  }
-};
+  //   let grownUps = array.map((animal) => {
+  //     animal.age += 2
+  //     return animal
+  //   });
+  //   return grownUps
+  // }
+
+  let grownUps = []
+  array.forEach((animal) => {
+    animal.age += 2
+    grownUps.push(animal)
+  });
+  // console.log(grownUps)
+  return grownUps
+},
 
 // PLEASE READ-----------------------
 // Currently, your functions are probably using the `kitties` global import variable.
@@ -117,7 +126,7 @@ const kittyPrompts = {
 // they can perform the same utility
 // for the kitties or puppers datasets, depending on what arguments you send through.
 
-
+}
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
