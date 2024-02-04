@@ -194,11 +194,22 @@ const modPrompts = {
     //  in the mods array
     //  - students per instructor value should be students/instructors
 
-    let studentCounts = mods.map((mod) => {
-      return {
+    // let studentCounts = mods.map((mod) => {
+    //   return {
+    //     mod: mod.mod,
+    //     studentsPerInstructor: (mod.students/mod.instructors)
+    //   }
+    // })
+    // return studentCounts
+
+    let studentCounts = []
+    mods.forEach((mod) => {
+      let newObject = {
         mod: mod.mod,
-        studentsPerInstructor: (mod.students/mod.instructors)
+        studentsPerInstructor: (mod.students / mod.instructors)
       }
+      studentCounts.push(newObject)
+      // console.log('studentCounts: ', studentCounts)
     })
     return studentCounts
 
