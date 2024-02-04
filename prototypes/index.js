@@ -186,6 +186,21 @@ const modPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    //input array of objects
+    //output array of objects with two properties
+    //  mod: num, and studentsPerInst: num
+    //1. declare new array variable
+    //2. use map to iterate and return a new object with two properties for each element
+    //  in the mods array
+    //  - students per instructor value should be students/instructors
+
+    let studentCounts = mods.map((mod) => {
+      return {
+        mod: mod.mod,
+        studentsPerInstructor: (mod.students/mod.instructors)
+      }
+    })
+    return studentCounts
 
     // Annotation:
     // Write your annotation here as a comment
