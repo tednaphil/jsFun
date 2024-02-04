@@ -486,6 +486,9 @@ const weatherPrompts = {
     return sunnyStatements
     // Annotation:
     // Write your annotation here as a comment
+    //REMEMBER and/or operator here needed full expression not just
+    // the second value we're looking for 
+    // city.type === 'sunny' || 'mostly sunny' is incorrect
   },
 
   findHighestHumidity() {
