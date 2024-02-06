@@ -345,6 +345,11 @@ const classPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    let feRooms = classrooms.filter((classroom) => {
+      return classroom.program === 'FE'
+    })
+
+    return feRooms
 
     // Annotation:
     // Write your annotation here as a comment
@@ -359,9 +364,30 @@ const classPrompts = {
     // }
 
     /* CODE GOES HERE */
+    //output: object with two properties
+
+    let feCapacity = classrooms.reduce((sum, classroom) => {
+      if (classroom.program === 'FE') {
+        sum += classroom.capacity
+      }
+      return sum
+    }, 0)
+    // console.log(feCapacity)
+    let beCapacity = classrooms.reduce((sum, classroom) => {
+      if (classroom.program === 'BE') {
+        sum += classroom.capacity
+      }
+      return sum
+    }, 0)
+    // console.log(beCapacity)
+    return {
+      feCapacity,
+      beCapacity
+    }
 
     // Annotation:
     // Write your annotation here as a comment
+    // DON'T FORGET YOUR INITIAL VALUE FOR YOUR ACCUMULATOR
   },
 
   sortByCapacity() {
