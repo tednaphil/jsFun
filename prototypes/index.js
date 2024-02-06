@@ -394,9 +394,14 @@ const classPrompts = {
     // Return the array of classrooms sorted by their capacity (least capacity to greatest)
 
     /* CODE GOES HERE */
+    let sortedRooms = classrooms.sort((a, b) => a.capacity - b.capacity)
+    // console.log(sortedRooms)
+    return sortedRooms
 
     // Annotation:
     // Write your annotation here as a comment
+    // a - b for ascending order
+    // b - a for descending order
   }
 };
 
