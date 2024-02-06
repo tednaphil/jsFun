@@ -501,6 +501,14 @@ const weatherPrompts = {
     // }
 
     /* CODE GOES HERE */
+    //output: object
+    //1. store sorted array in order of humidity
+    //2. return index position 0
+
+    let sortedCities = weather.sort((a, b) => b.humidity - a.humidity)
+    // console.log('sortedCities: ', sortedCities)
+    let highestHumidity = sortedCities[0]
+    return highestHumidity
 
     // Annotation:
     // Write your annotation here as a comment
