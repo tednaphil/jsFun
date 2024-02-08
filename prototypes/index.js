@@ -566,21 +566,25 @@ const nationalParksPrompts = {
     //}
 
     /* CODE GOES HERE */
+    let parksToVisit = nationalParks.filter(park => !park.visited);
+    let parksVisited = nationalParks.filter(park => park.visited)
 
     let parkTab = {
-      parksToVisit: [],
-      parksVisited: []
+      parksToVisit: parksToVisit.map(park => park.name),
+      parksVisited: parksVisited.map(park => park.name)
     }
 
-    nationalParks.forEach((park) => {
-      if (park.visited) {
-        parkTab.parksVisited.push(park.name)
-      } else {
-        parkTab.parksToVisit.push(park.name)
-      }
-    })
+    // nationalParks.forEach((park) => {
+    //   if (park.visited) {
+    //     parkTab.parksVisited.push(park.name)
+    //   } else {
+    //     parkTab.parksToVisit.push(park.name)
+    //   }
+    // })
 
     return parkTab
+
+
 
 
     // Annotation:
