@@ -567,6 +567,22 @@ const nationalParksPrompts = {
 
     /* CODE GOES HERE */
 
+    let parkTab = {
+      parksToVisit: [],
+      parksVisited: []
+    }
+
+    nationalParks.forEach((park) => {
+      if (park.visited) {
+        parkTab.parksVisited.push(park.name)
+      } else {
+        parkTab.parksToVisit.push(park.name)
+      }
+    })
+
+    return parkTab
+
+
     // Annotation:
     // Write your annotation here as a comment
   },
