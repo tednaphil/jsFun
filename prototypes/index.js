@@ -814,6 +814,9 @@ const boardGamePrompts = {
     // ["Candy Land", "Connect Four", "Operation", "Trouble"]
 
     /* CODE GOES HERE */
+    let gameNames = boardGames[type].map((game) => game.name)
+    // console.log(gameNames.sort())
+    return gameNames.sort()
 
     // Annotation:
     // Write your annotation here as a comment
