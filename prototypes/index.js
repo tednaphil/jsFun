@@ -846,9 +846,26 @@ const boardGamePrompts = {
     // note: do not worry about rounding your result.
 
     /* CODE GOES HERE */
+    //input string(key name)
+    //output number
+    //reduce
+
+    let totalRatings = boardGames[type].reduce((sum, game) => {
+      // console.log('game rating', game.rating)
+      sum += game.rating
+      return sum
+    }, 0)
+
+    // console.log(totalRatings)
+    return totalRatings / boardGames[type].length
+
+
 
     // Annotation:
     // Write your annotation here as a comment
+    //DONT FORGET YOUR INITIAL VALUE.
+    //this looks to have gotten coerced because the original value
+    //of the accumulator wasn't set to zero
   },
 
   averageScoreByTypeAndPlayers(type, maximumPlayers) {
@@ -858,7 +875,16 @@ const boardGamePrompts = {
     // note: do not worry about rounding your result.
 
     /* CODE GOES HERE */
+    //filter then reduce
 
+    let filteredGames = boardGames[type].filter(game => game.maxPlayers === maximumPlayers)
+    // console.log(filteredGames)
+    let totalRatings = filteredGames.reduce((sum, game) => {
+      sum += game.rating
+      return sum
+    }, 0)
+
+    return totalRatings / filteredGames.length
     // Annotation:
     // Write your annotation here as a comment
   }
