@@ -602,6 +602,13 @@ const nationalParksPrompts = {
 
 
     /* CODE GOES HERE */
+    let parkObject = nationalParks.map((park) => {
+      return {
+        [park.location]: park.name
+      }
+    })
+    // console.log(parkObject)
+    return parkObject
 
     // Annotation:
     // Write your annotation here as a comment
