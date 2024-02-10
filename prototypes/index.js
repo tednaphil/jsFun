@@ -828,6 +828,13 @@ const boardGamePrompts = {
     // { name: 'Codenames', rating: 7.4, maxPlayers: 8 },
 
     /* CODE GOES HERE */
+    //input string
+    //output singular object
+    //sort by rating then return index0
+
+    let sortedGames = boardGames[type].sort((a, b) => b.rating - a.rating)
+    // console.log(sortedGames)
+    return sortedGames[0]
 
     // Annotation:
     // Write your annotation here as a comment
