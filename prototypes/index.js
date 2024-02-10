@@ -631,9 +631,20 @@ const nationalParksPrompts = {
     //   'rock climbing' ]
 
     /* CODE GOES HERE */
+    let allActivities = []
+    nationalParks.forEach((park) => {
+      park.activities.forEach((activity) => {
+        if (!allActivities.includes(activity)) {
+          allActivities.push(activity)
+        }
+      })
+    })
+    // console.log('all activities', allActivities)
+    return allActivities
 
     // Annotation:
     // Write your annotation here as a comment
+    //is it ok to nest iterators?
   }
 };
 
