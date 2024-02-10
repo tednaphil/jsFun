@@ -800,6 +800,8 @@ const boardGamePrompts = {
     // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
 
     /* CODE GOES HERE */
+    let gameNames = boardGames[type].map((game) => game.name)
+    return gameNames
 
     // Annotation:
     // Write your annotation here as a comment
