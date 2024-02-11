@@ -971,14 +971,39 @@ const turingPrompts = {
   studentsPerInstructor() {
     // Return an object of how many students per teacher there are in each cohort e.g.
     // {
-    // cohort1806: 9,
-    // cohort1804: 10.5
+    // cohort1806: 15,
+    // cohort1804: 7
     // }
 
     /* CODE GOES HERE */
+    //input array
+    //output: object with 4 properties
+    // each key is a cohort
+    // each value is the student count divided by teacher count for the module
+
+    let cohortInstructors = cohorts.map((cohort) => {
+      return {
+        cohort: cohort.cohort,
+        module: cohort.module,
+        studentCount: cohort.studentCount,
+        instructors: instructors.filter(instructor => instructor.module === cohort.module)
+      }
+    })
+
+    let avgStudents = cohortInstructors.reduce((obj, cohort) => {
+      // console.log(cohort.cohort)
+      obj[`cohort${cohort.cohort}`]= cohort.studentCount / cohort.instructors.length
+      return obj
+    }, {})
+
+
+    // console.log(avgStudents)
+    return avgStudents
 
     // Annotation:
     // Write your annotation here as a comment
+    // REMEMBER: you can combine interpolation syntax with bracket notation
+    // to name newly created properties dynamically
   },
 
   modulesPerTeacher() {
