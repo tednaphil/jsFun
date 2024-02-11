@@ -309,6 +309,17 @@ const cakePrompts = {
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
     /* CODE GOES HERE */
+    let allToppings = cakes.reduce((list, cake) => {
+      cake.toppings.forEach((topping) => {
+        if (!list.includes(topping)) {
+          list.push(topping)
+        }
+      })
+      return list
+    }, [])
+
+    // console.log(allToppings)
+    return allToppings
 
     // Annotation:
     // Write your annotation here as a comment
