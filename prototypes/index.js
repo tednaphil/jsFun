@@ -337,6 +337,25 @@ const cakePrompts = {
     // }
 
     /* CODE GOES HERE */
+    let allToppings = cakes.reduce((list, cake) => {
+      cake.toppings.forEach(topping => {
+        list.push(topping)
+      })
+      return list
+    }, [])
+
+    let groceryList = allToppings.reduceRight((obj, topping) => {
+      if (!obj[topping]) {
+        obj[topping] = 0
+      }
+      obj[topping] ++
+      console.log(obj)
+      return obj
+    }, {})
+
+    // console.log(allToppings)
+    return groceryList
+
 
     // Annotation:
     // Write your annotation here as a comment
