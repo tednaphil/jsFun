@@ -294,6 +294,11 @@ const cakePrompts = {
 
     /* CODE GOES HERE */
 
+    return cakes.reduce((sum, cake) => {
+      sum += cake.inStock
+      return sum
+    }, 0)
+
     // Annotation:
     // Write your annotation here as a comment
   },
