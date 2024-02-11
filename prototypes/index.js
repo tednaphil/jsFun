@@ -349,7 +349,7 @@ const cakePrompts = {
         obj[topping] = 0
       }
       obj[topping] ++
-      console.log(obj)
+      // console.log(obj)
       return obj
     }, {})
 
@@ -459,7 +459,7 @@ const classPrompts = {
 // DATASET: books from './datasets/books
 
 const bookPrompts = {
-  removeViolence() {
+  removeViolence(bookArray) {
     // Your function should access the books data through a parameter (it is being passed as an argument in the test file)
     // return an array of all book titles that are not horror or true crime. Eg:
 
@@ -471,6 +471,14 @@ const bookPrompts = {
 
 
     /* CODE GOES HERE */
+    //filter then map
+
+    let filteredList = bookArray.filter(book => book.genre !== 'Horror' && book.genre !== 'True Crime')
+    // console.log(filteredList)
+    let bookList = filteredList.map(book => book.title)
+    return bookList
+
+
 
     // Annotation:
     // Write your annotation here as a comment
