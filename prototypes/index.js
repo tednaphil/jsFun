@@ -931,6 +931,38 @@ const turingPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    //input array
+    //output array of objects
+
+    let studentNums = []
+    instructors.forEach((instructor) => {
+      studentNums.push(
+        {
+          name: instructor.name,
+          module: instructor.module,
+          studentCount: 0 
+        }
+      )
+    }
+    )
+
+    studentNums.forEach((instructor) => {
+      cohorts.forEach((cohort) => {
+        if (instructor.module === cohort.module) {
+          instructor.studentCount = cohort.studentCount
+        }
+      })
+    })
+
+    let finalCounts = studentNums.map((instructor) => {
+      return {
+        name: instructor.name,
+        studentCount: instructor.studentCount
+      }
+
+    })
+    // console.log(finalCounts)
+    return finalCounts
 
     // Annotation:
     // Write your annotation here as a comment
