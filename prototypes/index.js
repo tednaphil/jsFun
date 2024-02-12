@@ -140,7 +140,7 @@ const kittyPrompts = {
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
-  membersBelongingToClubs() {
+  membersBelongingToClubs(clubArray) {
     // Your function should access the clubs data through a parameter (it is being passed as an argument in the test file)
     // Create an object whose keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
@@ -151,6 +151,22 @@ const clubPrompts = {
     // }
 
     /* CODE GOES HERE */
+    //input array
+    //output object
+    //reduce
+
+    let clubLists = clubArray.reduce((obj, club) => {
+      club.members.forEach((member) => {
+        if (!obj[member]) {
+          obj[member] = []
+        }
+        obj[member].push(club.club)
+        // console.log('object', obj)
+      })
+      return obj
+    }, {})
+
+    return clubLists
 
     // Annotation:
     // Write your annotation here as a comment
