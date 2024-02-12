@@ -521,6 +521,20 @@ const bookPrompts = {
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
     /* CODE GOES HERE */
+    //input: array and number
+    //output array
+
+    //filter then map
+    let filteredBooks = books.filter(book => book.published > year)
+    // console.log(filteredBooks)
+    let bookList = filteredBooks.map(book => {
+      return {
+        title: book.title,
+        year: book.published
+      }
+    })
+
+    return bookList
 
     // Annotation:
     // Write your annotation here as a comment
