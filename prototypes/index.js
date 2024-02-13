@@ -1283,6 +1283,21 @@ const astronomyPrompts = {
 
     /* CODE GOES HERE */
 
+    let constellationKeys = Object.keys(constellations)
+    let constellationList = []
+    
+    constellationKeys.forEach((constellation) => {
+      constellations[constellation].alternateNames.forEach(name => {
+        constellationList.push(name)
+      })
+    })
+
+    let starArray = stars.filter(star => constellationList.includes(star.constellation))
+
+    // console.log(constellationList)
+    // console.log(starArray)
+    return starArray
+
     // Annotation:
     // Write your annotation here as a comment
   },
