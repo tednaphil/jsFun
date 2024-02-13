@@ -1204,6 +1204,29 @@ const bossPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    //input object of objects
+    //output array of objects
+    //Object keys to make array of keys
+
+    let bossArray = Object.keys(bosses);
+    let bossLoyalties = bossArray.reduce((arr, boss) => {
+      arr.push({
+        bossName: bosses[boss].name,
+        sidekickLoyalty: 0
+      })
+      return arr
+    }, []);
+
+    bossLoyalties.forEach(boss => {
+      sidekicks.forEach(sidekick => {
+        if (sidekick.boss === boss.bossName) {
+          // console.log('boss match')
+          boss.sidekickLoyalty += sidekick.loyaltyToBoss
+        }
+      })
+    })
+    // console.log(bossLoyalties)
+    return bossLoyalties
 
     // Annotation:
     // Write your annotation here as a comment
