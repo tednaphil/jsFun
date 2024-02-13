@@ -1118,6 +1118,23 @@ const turingPrompts = {
 
     /* CODE GOES HERE */
 
+    //output: object
+    let instructorModules = instructors.reduce((obj, instructor) => {
+      obj[instructor.name] = []
+      cohorts.forEach(cohort => {
+        cohort.curriculum.forEach((concept) => {
+          if (instructor.teaches.includes(concept) && !obj[instructor.name].includes(cohort.module)) {
+            obj[instructor.name].push(cohort.module)
+            // console.log('module', cohort.module)
+          }
+        })
+      })
+      return obj
+    }, {})
+
+  //  console.log(instructorModules)
+   return instructorModules
+
     // Annotation:
     // Write your annotation here as a comment
   },
