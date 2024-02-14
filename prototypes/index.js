@@ -1314,6 +1314,21 @@ const astronomyPrompts = {
     // }
 
     /* CODE GOES HERE */
+    //output: object with color keys
+    //  each key assigned to an array of objects
+
+    //reduce
+
+    let starColors = stars.reduce((obj, star) => {
+      if (!obj[star.color]) {
+        obj[star.color] = []
+      }
+      obj[star.color].push(star)
+      return obj
+    }, {})
+
+    // console.log(starColors)
+    return starColors
 
     // Annotation:
     // Write your annotation here as a comment
