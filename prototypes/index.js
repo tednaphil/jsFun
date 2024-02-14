@@ -1394,6 +1394,16 @@ const ultimaPrompts = {
     // Answer => 113
 
     /* CODE GOES HERE */
+    let total = 0
+
+    characters.forEach(character => {
+      character.weapons.forEach(weapon => 
+        total += weapons[weapon].damage)
+    })
+
+    // console.log(total)
+    return total
+
 
     // Annotation:
     // Write your annotation here as a comment
@@ -1405,6 +1415,9 @@ const ultimaPrompts = {
     // ex: [ { Avatar: { damage: 27, range: 24 }, { Iolo: {...}, ...}
 
     /* CODE GOES HERE */
+    //output: array of objects
+    //keys - character names
+    //keys' values - object w/ two properties (damage and range)
 
     // Annotation:
     // Write your annotation here as a comment
