@@ -1351,6 +1351,19 @@ const astronomyPrompts = {
 
 
     /* CODE GOES HERE */
+    let sortedStars = stars.sort((a, b) => a.visualMagnitude - b.visualMagnitude)
+    // console.log(sortedStars)
+
+    let constellationStars = []
+
+    sortedStars.forEach(star => {
+      if (star.constellation) {
+        constellationStars.push(star.constellation)
+      }
+    })
+    
+    // console.log(constellationStars)
+    return constellationStars
 
     // Annotation:
     // Write your annotation here as a comment
