@@ -1419,6 +1419,24 @@ const ultimaPrompts = {
     //keys - character names
     //keys' values - object w/ two properties (damage and range)
 
+    let characterWeapons = characters.reduce((arr, character) => {
+      arr.push({
+        [character.name]: {
+          damage: character.weapons.reduce((sum, weapon) => {
+            sum += weapons[weapon].damage
+            // console.log('sum', sum)
+            return sum
+          }, 0),
+          range: character.weapons.reduce((sum, weapon) => {
+            sum += weapons[weapon].range
+            return sum
+          }, 0)
+        }
+      })
+      return arr
+    }, [])
+    return characterWeapons
+
     // Annotation:
     // Write your annotation here as a comment
   },
