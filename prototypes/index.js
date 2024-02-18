@@ -1549,7 +1549,9 @@ const dinosaurPrompts = {
 
   uncastActors() {
     /*
-    Return an array of objects that contain the names of humans who have not been cast in a Jurassic Park movie (yet), their nationality, and their imdbStarMeterRating. The object in the array should be sorted alphabetically by nationality.
+    Return an array of objects that contain the names of humans who have not been
+    cast in a Jurassic Park movie (yet), their nationality, and their imdbStarMeterRating.
+    The object in the array should be sorted alphabetically by nationality.
 
     e.g.
       [{
@@ -1574,9 +1576,34 @@ const dinosaurPrompts = {
     */
 
     /* CODE GOES HERE */
+    
+    let allActors = Object.keys(humans);
+    let castActors = movies.reduce((arr, movie) => {
+      movie.cast.forEach(actor => {
+        arr.push(actor)
+      })
+      return arr
+    }, []);
+    // console.log('castActors', castActors)
+    let filteredActors = allActors.filter(actor => !castActors.includes(actor))
+    
+    let uncastInfo = filteredActors.map(actor => {
+      return {
+        name: actor,
+        nationality: humans[actor].nationality,
+        imdbStarMeterRating: humans[actor].imdbStarMeterRating
+      }
+    }).sort((a, b) => a.nationality.localeCompare(b.nationality))
+
+    // console.log('filteredActors', filteredActors)
+    // console.log(uncastInfo)
+    // console.log('sortedInfo', sortedInfo)
+    return uncastInfo
 
     // Annotation:
     // Write your annotation here as a comment
+    //use `localeCompare()` in the callback of `sort` to sort objects in an array
+    //by a property value that is a string
   },
 
   actorsAgesInMovies() {
