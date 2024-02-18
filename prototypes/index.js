@@ -1485,7 +1485,7 @@ const dinosaurPrompts = {
       return obj
     }, {})
 
-    console.log(movieDinoCount)
+    // console.log(movieDinoCount)
     return movieDinoCount
 
 
@@ -1522,8 +1522,29 @@ const dinosaurPrompts = {
 
     /* CODE GOES HERE */
 
+    let movieAges = movies.reduce((obj, movie) => {
+      if (!obj[movie.director]) {
+        obj[movie.director] = {
+          [movie.title]: Math.trunc(movie.cast.reduce((sum, actor) => {
+            sum += (movie.yearReleased) - (humans[actor].yearBorn)
+            return sum
+          }, 0) / movie.cast.length)
+        }
+      } else if (obj[movie.director]) {
+        obj[movie.director][movie.title] = Math.trunc(movie.cast.reduce((sum, actor) => {
+          sum += (movie.yearReleased) - (humans[actor].yearBorn)
+          return sum
+        }, 0) / movie.cast.length)
+      }
+      return obj
+    }, {})
+    // console.log(movieAges)
+    return movieAges
+
     // Annotation:
     // Write your annotation here as a comment
+    //remember you can add properties to an object within an object just how
+    //you created a new property on your accumulator obj - just link those brackets!!
   },
 
   uncastActors() {
