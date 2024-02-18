@@ -1439,6 +1439,9 @@ const ultimaPrompts = {
 
     // Annotation:
     // Write your annotation here as a comment
+    // it's pretty neat that you can use a reduce to compile a value for a
+    // property's value at it's establishment instead of iterating through
+    //again another time and having to access the nested objects all over again
   },
 };
 
@@ -1472,6 +1475,20 @@ const dinosaurPrompts = {
     // }
 
     /* CODE GOES HERE */
+    // output: object
+    // key names movie titles
+    // values dinos array length
+    // reduce
+
+    let movieDinoCount = movies.reduce((obj, movie) => {
+      obj[movie.title] = movie.dinos.length
+      return obj
+    }, {})
+
+    console.log(movieDinoCount)
+    return movieDinoCount
+
+
 
     // Annotation:
     // Write your annotation here as a comment
