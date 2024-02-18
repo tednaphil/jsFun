@@ -1624,6 +1624,51 @@ const dinosaurPrompts = {
 
     /* CODE GOES HERE */
 
+    let castActors = movies.reduce((arr, movie) => {
+      movie.cast.forEach(actor => {
+        if (!arr.includes(actor)) {
+          arr.push(actor)
+        }
+      })
+      return arr
+    }, []);
+
+    let actorInfo = castActors.map(actor => {
+      return {
+        name: actor,
+        ages: [],
+      }
+    })
+
+    movies.forEach(movie => {
+      actorInfo.forEach(actorObject => {
+        if (movie.cast.includes(actorObject.name)) {
+          actorObject.ages.push(movie.yearReleased - humans[actorObject.name].yearBorn)
+        }
+      })
+    })
+
+
+
+
+
+    // console.log(castActors)
+    // let actorAges = movies.reduce((arr, movie) => {
+    //   movie.cast.forEach(actor => {
+    //     // console.log('in the array?', arr.includes(actor))
+    //     if (!arr.includes(actor)) {
+    //       arr.push({
+    //         name: `${actor}`,
+    //         ages: []
+    //       })
+    //     }
+    //   })
+    //   return arr
+    // }, [])
+
+    // console.log(actorInfo)
+    return actorInfo
+
     // Annotation:
     // Write your annotation here as a comment
   }
